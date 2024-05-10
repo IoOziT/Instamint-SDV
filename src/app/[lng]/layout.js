@@ -1,12 +1,12 @@
-import "../globals.css"
+import "../globals.css";
 
-import { dir } from "i18next"
+import { dir } from "i18next";
 
-import { languages } from "@/lib/i18n/settings"
-import { I18nProvider } from "@/lib/i18n/index.js"
+import { languages } from "@/lib/i18n/settings";
+import { I18nProvider } from "@/lib/i18n/index.js";
 
-import Footer from "../components/layout/footer.js"
-import Navbar from "../components/layout/navbar.js"
+import Footer from "@/components/layout/footer.js";
+import Navbar from "@/components/layout/navbar.js";
 
 /**
  * @type {import("next").Metadata}
@@ -14,10 +14,10 @@ import Navbar from "../components/layout/navbar.js"
 export const metadata = {
   title: "Instamint",
   description: "The new social network for NFT enjoyers",
-}
+};
 
 export function generateStaticParams() {
-  return languages.map((lng) => ({ lng }))
+  return languages.map((lng) => ({ lng }));
 }
 
 /**
@@ -37,7 +37,7 @@ const Layout = ({ children, params: { lng } }) => {
         </I18nProvider>
       </body>
     </html>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

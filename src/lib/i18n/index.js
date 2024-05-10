@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import i18next from "i18next"
-import ICU from "i18next-icu"
-import HttpBackend from "i18next-http-backend"
-import { I18nextProvider, initReactI18next } from "react-i18next"
-import LanguageDetector from "i18next-browser-languagedetector"
+import i18next from "i18next";
+import ICU from "i18next-icu";
+import HttpBackend from "i18next-http-backend";
+import { I18nextProvider, initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 
-import { defaultNS, fallbackLng, languages } from "./settings"
+import { defaultNS, fallbackLng, languages } from "./settings";
 
 /**
  * @type {import("i18next").i18n | undefined}
  */
-let i18nInstance = undefined
+let i18nInstance = undefined;
 
 /**
  *
@@ -35,11 +35,13 @@ function setupI18n(i18nInstance, options) {
         order: ["path", "htmlTag", "cookie", "navigator"],
       },
       backend: {
-        loadPath: `${process.env.__NEXT_PRIVATE_ORIGIN ?? ""}/locales/{{lng}}/{{ns}}.json`,
+        loadPath: `${
+          process.env.__NEXT_PRIVATE_ORIGIN ?? ""
+        }/locales/{{lng}}/{{ns}}.json`,
       },
-    })
+    });
 
-  return i18nInstance
+  return i18nInstance;
 }
 
 /**
@@ -49,10 +51,10 @@ function setupI18n(i18nInstance, options) {
  */
 export function getI18n(lng) {
   if (typeof window === "undefined") {
-    return setupI18n(i18next.createInstance(), { lng })
+    return setupI18n(i18next.createInstance(), { lng });
   } else {
-    if (!i18nInstance) i18nInstance = setupI18n(i18next)
-    return i18nInstance
+    if (!i18nInstance) i18nInstance = setupI18n(i18next);
+    return i18nInstance;
   }
 }
 
@@ -63,7 +65,7 @@ export function getI18n(lng) {
  * @param {string} [props.lng] - If set, overrides the language detection
  */
 export const I18nProvider = ({ children, lng }) => {
-  const i18n = getI18n(lng)
+  const i18n = getI18n(lng);
 
-  return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
-}
+  return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
+};

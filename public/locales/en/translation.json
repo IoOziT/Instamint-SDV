@@ -1,1 +1,8 @@
-{}
+{
+	"email": "Email",
+	"password": "Password",
+	"phone-number": "Phone number",
+	"login": "Login",
+	"register": "Register",
+	"confirm-password": "Confirm password"
+}
