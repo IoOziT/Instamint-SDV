@@ -1,6 +1,7 @@
 module.exports.up = async (knex) => {
     await knex.schema.createTable("nfts", (table) => {
         table.increments("id").primary();
+        table.integer("owner_id").references("id").inTable("profiles").notNullable();
         table.text("name").notNullable();
         table.text("description").notNullable().unique();
         table.text("url").notNullable();
