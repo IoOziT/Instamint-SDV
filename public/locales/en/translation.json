@@ -4,5 +4,7 @@
 	"phone-number": "Phone number",
 	"login": "Login",
 	"register": "Register",
-	"confirm-password": "Confirm password"
+	"confirm-password": "Confirm password",
+	"register-button" : "Register",
+	"login-button" : "Login"
 }

@@ -4,5 +4,7 @@
 	"phone-number": "Numéro de téléphone",
 	"login": "Connexion",
 	"register": "Inscription",
-	"confirm-password": "Confirmer le mot de passe"
+	"confirm-password": "Confirmer le mot de passe",
+	"register-button" : "S'inscrire",
+	"login-button" : "Se connecter"
 }
