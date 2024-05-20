@@ -12,4 +12,6 @@ export const ErrorCode = {
 	RateLimitExceeded: "rate-limit-exceeded",
 	EmailNotVerified: "email-not-verified",
 	EmailAlreadyExists: "email-already-exists",
+	InvalidConfirmPassword: "invalid-confirm-password",
+	InvalidRegisterPayload: "invalid-register-payload",
 };

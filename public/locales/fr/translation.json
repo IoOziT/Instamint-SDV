@@ -5,6 +5,23 @@
 	"login": "Connexion",
 	"register": "Inscription",
 	"confirm-password": "Confirmer le mot de passe",
-	"register-button" : "S'inscrire",
-	"login-button" : "Se connecter"
+	"register-button": "S'inscrire",
+	"login-button": "Se connecter",
+	"error-message": {
+		"incorrect-email-password": "email ou mot de passe incorrect",
+		"user-not-found": "utilisateur non trouvé",
+		"incorrect-password": "mot de passe incorrect",
+		"missing-password": "mot de passe manquant",
+		"two-factor-disabled": "authentification à deux facteurs désactivée",
+		"two-factor-already-enabled": "authentification à deux facteurs déjà activée",
+		"two-factor-setup-required": "configuration de l'authentification à deux facteurs requise",
+		"second-factor-required": "deuxième facteur requis",
+		"incorrect-two-factor-code": "code d'authentification à deux facteurs incorrect",
+		"internal-server-error": "erreur interne du serveur",
+		"rate-limit-exceeded": "limite de fréquence dépassée",
+		"email-not-verified": "email non vérifié",
+		"email-already-exists": "email existe déjà",
+		"invalid-confirm-password": "confirmation de mot de passe invalide",
+		"invalid-register-payload": "charge utile d'inscription invalide"
+	}
 }

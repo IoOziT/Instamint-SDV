@@ -1,12 +1,14 @@
 "use client";
 
 import ImageForm from "@/components/form/imageForm";
-import LoginForm from "@/components/form/loginForm";
+import RegisterForm from "@/components/form/registerForm";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-const LoginPage = () => {
+const RegisterPage = () => {
 	const [showPassword, setShowPassword] = useState(false);
+	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
 	const { t } = useTranslation();
 
 	return (
@@ -21,11 +23,13 @@ const LoginPage = () => {
 				<div className="hidden lg:block border-l-2 border-black h-96 mx-8"></div>
 				<div className="flex flex-col gap-2 w-full lg:w-80 relative">
 					<h1 className="flex justify-center text-xl underline font-bold">
-						{t("login")}
+						{t("register")}
 					</h1>
-					<LoginForm
+					<RegisterForm
 						showPassword={showPassword}
 						setShowPassword={setShowPassword}
+						showConfirmPassword={showConfirmPassword}
+						setShowConfirmPassword={setShowConfirmPassword}
 					/>
 				</div>
 			</div>
@@ -33,4 +37,4 @@ const LoginPage = () => {
 	);
 };
 
-export default LoginPage;
+export default RegisterPage;

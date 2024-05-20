@@ -1,11 +1,17 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { getKnex } from "./db";
-import Minters from "./db/models/MintersModel";
+import Minters from "./db/models/mintersModel";
 import { ErrorCode } from "./errors";
 import { hashPassword } from "./hash";
 
-export const registerMinters = async ({ email, password }) => {
+export const registerMinters = async ({
+	email,
+	password,
+	phoneNumber,
+	isPublic,
+}) => {
 	await getKnex();
 	const emailExists = await isEmailMintersExists(email);
 
@@ -16,14 +22,16 @@ export const registerMinters = async ({ email, password }) => {
 	const user = await Minters.query().insert({
 		email,
 		password: await hashPassword(password),
-		is_public: false,
+		is_public: isPublic,
+		phone: phoneNumber,
 		type: "minters",
 	});
 
-	return {
-		id: user.id,
-		email: user.email,
-	};
+	if (!user) {
+		throw new Error(ErrorCode.InvalidRegisterPayload);
+	}
+
+	redirect("/login");
 };
 
 export const isEmailMintersExists = async email => {

@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import authConfig from "./auth.config";
 import { getKnex } from "./db";
-import Minters from "./db/models/MintersModel";
+import Minters from "./db/models/mintersModel";
 import { ErrorCode } from "./errors";
 import { compareHash } from "./hash";
 
