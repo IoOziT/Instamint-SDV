@@ -1,1 +1,27 @@
-{}
+{
+	"email": "Correo electrónico",
+	"password": "Contraseña",
+	"phone-number": "Número de teléfono",
+	"login": "Iniciar sesión",
+	"register": "Registrarse",
+	"confirm-password": "Confirmar contraseña",
+	"register-button": "Inscribirse",
+	"login-button": "Conectarse",
+	"error-message": {
+		"incorrect-email-password": "correo electrónico o contraseña incorrectos",
+		"user-not-found": "usuario no encontrado",
+		"incorrect-password": "contraseña incorrecta",
+		"missing-password": "contraseña faltante",
+		"two-factor-disabled": "autenticación de dos factores desactivada",
+		"two-factor-already-enabled": "autenticación de dos factores ya activada",
+		"two-factor-setup-required": "configuración de autenticación de dos factores requerida",
+		"second-factor-required": "segundo factor requerido",
+		"incorrect-two-factor-code": "código de autenticación de dos factores incorrecto",
+		"internal-server-error": "error interno del servidor",
+		"rate-limit-exceeded": "límite de frecuencia excedido",
+		"email-not-verified": "correo electrónico no verificado",
+		"email-already-exists": "correo electrónico ya existe",
+		"invalid-confirm-password": "confirmar contraseña inválida",
+		"invalid-register-payload": "carga útil de registro no válida"
+	}
+}

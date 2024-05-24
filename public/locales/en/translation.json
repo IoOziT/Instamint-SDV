@@ -1,1 +1,27 @@
-{}
+{
+	"email": "Email",
+	"password": "Password",
+	"phone-number": "Phone number",
+	"login": "Login",
+	"register": "Register",
+	"confirm-password": "Confirm password",
+	"register-button": "Register",
+	"login-button": "Login",
+	"error-message": {
+		"incorrect-email-password": "incorrect email or password",
+		"user-not-found": "user not found",
+		"incorrect-password": "incorrect password",
+		"missing-password": "missing password",
+		"two-factor-disabled": "two-factor authentication disabled",
+		"two-factor-already-enabled": "two-factor authentication already enabled",
+		"two-factor-setup-required": "two-factor authentication setup required",
+		"second-factor-required": "second factor required",
+		"incorrect-two-factor-code": "incorrect two-factor authentication code",
+		"internal-server-error": "internal server error",
+		"rate-limit-exceeded": "rate limit exceeded",
+		"email-not-verified": "email not verified",
+		"email-already-exists": "email already exists",
+		"invalid-confirm-password": "invalid confirm password",
+		"invalid-register-payload": "invalid register payload"
+	}
+}
