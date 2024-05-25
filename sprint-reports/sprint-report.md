@@ -1,15 +1,16 @@
-## Sprint `[INSERT SPRINT START/END DATES]`
+## Sprint `15/04/2024 / 11/05/2024`
 
-[INSERT SHORT SUMMARY OF THE SPRINT]
+In this sprint, we set up everything related to the project (Jira, GitHub, project, database).
+We mainly focused on translation (i18n), registration, and login.
 
 ### Positive reviews
 
 - Review 1
-  - Description: `[INSERT DESCRIPTION]`
+  - Description: `Some group members are responsive, ready to give advice, and handle pull requests properly.`
   - Commitment:
-    - Who: `[INSERT NAME]`
-    - What: `[INSERT DELIVERY]`
-    - When: `[INSERT DEADLINE]`
+    - Who: `Louis LAGRANGE`
+    - What: `Feedback on the group`
+    - When: `11/05/2024`
 - Review 2
   - Description: `[INSERT DESCRIPTION]`
   - Commitment:
@@ -21,11 +22,11 @@
 ### Negative reviews
 
 - Review 1
-  - Description: `[INSERT DESCRIPTION]`
+  - Description: `On the contrary, some members are passive and do not pay attention to what they are told.`
   - Commitment:
-    - Who: `[INSERT NAME]`
-    - What: `[INSERT DELIVERY]`
-    - When: `[INSERT DEADLINE]`
+    - Who: `Louis LAGRANGE`
+    - What: `Feedback on the group:`
+    - When: `11/05/2024`
 - Review 2
   - Description: `[INSERT DESCRIPTION]`
   - Commitment:
@@ -42,13 +43,6 @@
     - Who: `[INSERT NAME]`
     - What: `[INSERT DELIVERY]`
     - When: `[INSERT DEADLINE]`
-- Question 2
-  - Description: `[INSERT DESCRIPTION]`
-  - Commitment:
-    - Who: `[INSERT NAME]`
-    - What: `[INSERT DELIVERY]`
-    - When: `[INSERT DEADLINE]`
-- …
 
 ### Ideas
 
@@ -58,16 +52,9 @@
     - Who: `[INSERT NAME]`
     - What: `[INSERT DELIVERY]`
     - When: `[INSERT DEADLINE]`
-- Idea 2
-  - Description: `[INSERT DESCRIPTION]`
-  - Commitment:
-    - Who: `[INSERT NAME]`
-    - What: `[INSERT DELIVERY]`
-    - When: `[INSERT DEADLINE]`
-- …
 
 ### Participants
 
-- `[INSERT NAME 1]`
+- `Louis LAGRANGE`
 - `[INSERT NAME 2]`
 - …
