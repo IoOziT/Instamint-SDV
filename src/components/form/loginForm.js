@@ -58,7 +58,6 @@ const LoginForm = ({ showPassword, setShowPassword }) => {
 
 			{error && <p className="text-red-500 first-letter:capitalize">{error}</p>}
 			<Button className="bg-vibrantGreen" form="loginForm">
-				{" "}
 				{t("login-button")}
 			</Button>
 		</form>

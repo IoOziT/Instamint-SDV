@@ -28,5 +28,12 @@
 		"invalid-register-payload": "carga útil de registro no válida",
 		"reset-password-token-not-found": "token de restablecimiento de contraseña no encontrado",
 		"invalid-password-format": "formato de contraseña inválido"
+	},
+	"loading": "Cargando...",
+	"password-reset-success": "¡Tu contraseña ha sido restablecida con éxito!",
+	"enter-new-password": "Introduce tu nueva contraseña",
+	"reset-password-token-invalid": {
+		"title": "Token de restablecimiento de contraseña inválido",
+		"description": "El token de restablecimiento de contraseña que has utilizado es inválido. Por favor, solicita un nuevo token de restablecimiento de contraseña."
 	}
 }

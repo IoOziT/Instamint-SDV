@@ -28,5 +28,12 @@
 		"invalid-register-payload": "charge utile d'inscription invalide",
 		"reset-password-token-not-found": "jeton de réinitialisation du mot de passe non trouvé",
 		"invalid-password-format": "format de mot de passe invalide"
+	},
+	"loading": "Chargement...",
+	"password-reset-success": "Votre mot de passe a été réinitialisé avec succès",
+	"enter-new-password": "Entrez un nouveau mot de passe",
+	"reset-password-token-invalid": {
+		"title": "Token invalide",
+		"description": "Le token de réinitialisation du mot de passe est invalide ou a expiré. Veuillez réessayer."
 	}
 }

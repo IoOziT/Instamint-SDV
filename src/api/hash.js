@@ -26,7 +26,6 @@ export const createResetPasswordToken = async () => {
 	while (tokenExists) {
 		token = cryptoRandomString({ length: 32, type: "url-safe" });
 
-		// Check if the token already exists in the database
 		const existingToken = await Minters.query().findOne({
 			reset_password_token: token,
 		});

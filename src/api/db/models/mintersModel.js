@@ -15,7 +15,7 @@ class Minters extends BaseModel {
 	}
 
 	async sendResetPasswordEmail() {
-		// Send email with the token
+		//TODO:  Send email with the token ( WHEN IMPLEMENTING EMAIL FUNCTIONALITY )
 	}
 
 	async resetPassword(newPassword, resetPasswordToken) {

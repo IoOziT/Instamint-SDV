@@ -86,7 +86,7 @@ export const checkResetPasswordToken = async token => {
 		.where({ reset_password_token: token });
 
 	if (!user) {
-		throw new Error(ErrorCode.ResetPasswordTokenNotFound);
+		return false;
 	}
 
 	return user;
