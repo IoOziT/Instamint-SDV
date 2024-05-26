@@ -2,6 +2,7 @@
 
 import ImageForm from "@/components/form/imageForm";
 import RegisterForm from "@/components/form/registerForm";
+import Link from "next/link";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -31,6 +32,7 @@ const RegisterPage = () => {
 						showConfirmPassword={showConfirmPassword}
 						setShowConfirmPassword={setShowConfirmPassword}
 					/>
+					<Link href={"/login"}>{t("already-have-account-login")}</Link>
 				</div>
 			</div>
 		</div>

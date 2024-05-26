@@ -2,6 +2,8 @@
 
 import ImageForm from "@/components/form/imageForm";
 import LoginForm from "@/components/form/loginForm";
+import ResetPasswordModal from "@/components/modals/resetPasswordModal";
+import Link from "next/link";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -27,6 +29,9 @@ const LoginPage = () => {
 						showPassword={showPassword}
 						setShowPassword={setShowPassword}
 					/>
+					<ResetPasswordModal />
+
+					<Link href={"/register"}>{t("no-account-register")}</Link>
 				</div>
 			</div>
 		</div>

@@ -7,6 +7,9 @@
 	"confirm-password": "Confirmer le mot de passe",
 	"register-button": "S'inscrire",
 	"login-button": "Se connecter",
+	"no-account-register": "Pas de compte ? S'inscrire",
+	"already-have-account-login": "Déjà un compte ? Se connecter",
+	"reset-password": "Réinitialiser le mot de passe",
 	"error-message": {
 		"incorrect-email-password": "email ou mot de passe incorrect",
 		"user-not-found": "utilisateur non trouvé",
@@ -22,6 +25,16 @@
 		"email-not-verified": "email non vérifié",
 		"email-already-exists": "email existe déjà",
 		"invalid-confirm-password": "confirmation de mot de passe invalide",
-		"invalid-register-payload": "charge utile d'inscription invalide"
-	}
+		"invalid-register-payload": "charge utile d'inscription invalide",
+		"reset-password-token-not-found": "jeton de réinitialisation du mot de passe non trouvé",
+		"invalid-password-format": "format de mot de passe invalide"
+	},
+	"loading": "Chargement...",
+	"password-reset-success": "Votre mot de passe a été réinitialisé avec succès",
+	"enter-new-password": "Entrez un nouveau mot de passe",
+	"reset-password-token-invalid": {
+		"title": "Token invalide",
+		"description": "Le token de réinitialisation du mot de passe est invalide ou a expiré. Veuillez réessayer."
+	},
+	"return-to": "Retour à"
 }
