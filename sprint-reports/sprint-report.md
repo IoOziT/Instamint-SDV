@@ -1,7 +1,6 @@
 ## Sprint `15/04/2024 / 11/05/2024`
 
-In this sprint, we set up everything related to the project (Jira, GitHub, project, database).
-We mainly focused on translation (i18n), registration, and login.
+In this sprint, we set up everything related to the project (Jira, GitHub, project, database). We mainly focused on translation (i18n), registration, and login.
 
 ### Positive reviews
 
@@ -12,27 +11,26 @@ We mainly focused on translation (i18n), registration, and login.
     - What: `Feedback on the group`
     - When: `11/05/2024`
 - Review 2
+  - Description: `We start the auth and i18n, all work fine`
+  - Commitment: - Who: `Meyer AttAL` - What: `Feedback on the advancement` - When: `11/05/2024`
+  <!-- - Review 3
   - Description: `[INSERT DESCRIPTION]`
   - Commitment:
     - Who: `[INSERT NAME]`
     - What: `[INSERT DELIVERY]`
-    - When: `[INSERT DEADLINE]`
-- …
+    - When: `[INSERT DEADLINE]` -->
 
 ### Negative reviews
 
 - Review 1
   - Description: `On the contrary, some members are passive and do not pay attention to what they are told.`
-  - Commitment:
-    - Who: `Louis LAGRANGE`
-    - What: `Feedback on the group:`
-    - When: `11/05/2024`
-- Review 2
+  - Commitment: - Who: `Louis LAGRANGE` - What: `Feedback on the group:` - When: `11/05/2024`
+  <!-- - Review 2
   - Description: `[INSERT DESCRIPTION]`
   - Commitment:
     - Who: `[INSERT NAME]`
     - What: `[INSERT DELIVERY]`
-    - When: `[INSERT DEADLINE]`
+    - When: `[INSERT DEADLINE]` -->
 - …
 
 ### Questions
@@ -56,5 +54,5 @@ We mainly focused on translation (i18n), registration, and login.
 ### Participants
 
 - `Louis LAGRANGE`
-- `[INSERT NAME 2]`
+- `Meyer ATTAL`
 - …
