@@ -14,4 +14,6 @@ export const ErrorCode = {
 	EmailAlreadyExists: "email-already-exists",
 	InvalidConfirmPassword: "invalid-confirm-password",
 	InvalidRegisterPayload: "invalid-register-payload",
+	ResetPasswordTokenNotFound: "reset-password-token-not-found",
+	InvalidPasswordFormat: "invalid-password-format",
 };

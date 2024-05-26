@@ -11,11 +11,12 @@ export const config = {
 	],
 };
 
-const publicPathname = ["/login", "/register"];
+const publicPathname = ["/login", "/register", "/resetPassword"];
 
 const checkAuth = async (req, url) => {
 	const pathname = url.pathname;
-	const isPublic = publicPathname.includes(pathname);
+	console.log(pathname);
+	const isPublic = publicPathname.some(path => pathname.includes(path));
 
 	const user = await getCurrentMinters();
 

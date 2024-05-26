@@ -8,7 +8,7 @@ import authConfig from "./auth.config";
 import { getKnex } from "./db";
 import Minters from "./db/models/mintersModel";
 import { ErrorCode } from "./errors";
-import { compareHash } from "./hash";
+import { compareHash, createResetPasswordToken } from "./hash";
 
 export const signIn = async credentials => {
 	await getKnex();
@@ -54,3 +54,40 @@ const signToken = (payload, expiresIn) =>
 	jsonwebtoken.sign(payload, authConfig.security.userSession.token.secret, {
 		expiresIn,
 	});
+
+export const askForResetPassword = async email => {
+	await getKnex();
+	const user = await Minters.query().first().where({ email });
+
+	if (!user) {
+		return true;
+	}
+
+	const resetPasswordToken = await createResetPasswordToken();
+
+	await user.setResetPasswordToken(resetPasswordToken);
+
+	await user.sendResetPasswordEmail();
+
+	return true;
+};
+
+export const resetPassword = async (password, token) => {
+	await getKnex();
+	const user = await checkResetPasswordToken(token);
+
+	return await user.resetPassword(password, token);
+};
+
+export const checkResetPasswordToken = async token => {
+	await getKnex();
+	const user = await Minters.query()
+		.first()
+		.where({ reset_password_token: token });
+
+	if (!user) {
+		throw new Error(ErrorCode.ResetPasswordTokenNotFound);
+	}
+
+	return user;
+};

@@ -7,6 +7,9 @@
 	"confirm-password": "Confirmar contraseña",
 	"register-button": "Inscribirse",
 	"login-button": "Conectarse",
+	"no-account-register": "¿No tienes una cuenta? Regístrate",
+	"already-have-account-login": "¿Ya tienes una cuenta? Iniciar sesión",
+	"reset-password": "Restablecer la contraseña",
 	"error-message": {
 		"incorrect-email-password": "correo electrónico o contraseña incorrectos",
 		"user-not-found": "usuario no encontrado",
@@ -22,6 +25,8 @@
 		"email-not-verified": "correo electrónico no verificado",
 		"email-already-exists": "correo electrónico ya existe",
 		"invalid-confirm-password": "confirmar contraseña inválida",
-		"invalid-register-payload": "carga útil de registro no válida"
+		"invalid-register-payload": "carga útil de registro no válida",
+		"reset-password-token-not-found": "token de restablecimiento de contraseña no encontrado",
+		"invalid-password-format": "formato de contraseña inválido"
 	}
 }
