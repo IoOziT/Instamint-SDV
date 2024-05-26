@@ -22,12 +22,17 @@ const LoginForm = ({ showPassword, setShowPassword }) => {
 		});
 	};
 	return (
-		<form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+		<form
+			className="flex flex-col gap-2"
+			onSubmit={handleSubmit}
+			id="loginForm"
+		>
 			<Input
 				placeholder={t("email")}
 				value={email}
 				onChange={e => setEmail(e.target.value)}
 				required
+				form="loginForm"
 			/>
 			<div className="relative">
 				<Input
@@ -36,6 +41,7 @@ const LoginForm = ({ showPassword, setShowPassword }) => {
 					value={password}
 					onChange={e => setPassword(e.target.value)}
 					required
+					form="loginForm"
 				/>
 				{showPassword ? (
 					<FaEyeSlash
@@ -51,7 +57,9 @@ const LoginForm = ({ showPassword, setShowPassword }) => {
 			</div>
 
 			{error && <p className="text-red-500 first-letter:capitalize">{error}</p>}
-			<Button className="bg-vibrantGreen"> {t("login-button")}</Button>
+			<Button className="bg-vibrantGreen" form="loginForm">
+				{t("login-button")}
+			</Button>
 		</form>
 	);
 };

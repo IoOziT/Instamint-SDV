@@ -3,19 +3,12 @@ import { useState } from "react";
 
 import { ErrorCode } from "@/api/errors";
 import { registerMinters } from "@/api/minters";
+import { registerMintersSchema } from "@/schema/minters.schema";
 import { useTranslation } from "react-i18next";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { z } from "zod";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
 import { Input } from "../ui/input";
-
-const registerMintersSchema = z.object({
-	email: z.string().email(),
-	password: z.string().min(8),
-	phoneNumber: z.string().min(10),
-	isPublic: z.boolean(),
-});
 
 const RegisterForm = ({ showPassword, setShowPassword }) => {
 	const [email, setEmail] = useState("");

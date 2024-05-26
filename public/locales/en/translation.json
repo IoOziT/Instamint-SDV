@@ -7,6 +7,9 @@
 	"confirm-password": "Confirm password",
 	"register-button": "Register",
 	"login-button": "Login",
+	"no-account-register": "Don't have an account? Register",
+	"already-have-account-login": "Already have an account? Login",
+	"reset-password": "Reset password",
 	"error-message": {
 		"incorrect-email-password": "incorrect email or password",
 		"user-not-found": "user not found",
@@ -22,6 +25,16 @@
 		"email-not-verified": "email not verified",
 		"email-already-exists": "email already exists",
 		"invalid-confirm-password": "invalid confirm password",
-		"invalid-register-payload": "invalid register payload"
-	}
+		"invalid-register-payload": "invalid register payload",
+		"reset-password-token-not-found": "reset password token invalid",
+		"invalid-password-format": "invalid password format"
+	},
+	"loading": "Loading...",
+	"password-reset-success": "Password reset success",
+	"enter-new-password": "Enter new password",
+	"reset-password-token-invalid": {
+		"title": "Reset password token invalid",
+		"description": "The password reset token you provided is invalid or has expired. Please try resetting your password again."
+	},
+	"return-to": "Return to"
 }
