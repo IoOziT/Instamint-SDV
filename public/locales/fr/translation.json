@@ -35,5 +35,6 @@
 	"reset-password-token-invalid": {
 		"title": "Token invalide",
 		"description": "Le token de réinitialisation du mot de passe est invalide ou a expiré. Veuillez réessayer."
-	}
+	},
+	"return-to": "Retour à"
 }

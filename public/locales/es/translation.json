@@ -35,5 +35,6 @@
 	"reset-password-token-invalid": {
 		"title": "Token de restablecimiento de contraseña inválido",
 		"description": "El token de restablecimiento de contraseña que has utilizado es inválido. Por favor, solicita un nuevo token de restablecimiento de contraseña."
-	}
+	},
+	"return-to": "Volver a"
 }
