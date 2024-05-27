@@ -21,7 +21,30 @@ Instamint is a social network platform that allows users to post and purchase NF
    SALT_ROUNDS_PASSWORD=10
    ```
 
-3. Instamint uses PostgreSQL as its database. Make sure you have pgAdmin installed and create a database named "Instamint".
+     ```
+    DB_CONNECTION_HOST : Specifies the hostname or IP address of the database server. It tells the application where to find the database
+    ```
+     ```
+    DB_CONNECTION_PORT : The port number on which the database server listens. Set this value to match your database configuration.
+    ```
+     ```
+    DB_CONNECTION_USER : The username used for database authentication. This user should have necessary permissions for database operations.
+    ```
+     ```
+    DB_CONNECTION_PASSWORD : The password associated with the specified user. Keep it confidential for secure database connections.
+    ```
+     ```
+    DB_CONNECTION_DATABASE : The name of the specific database within the management system. For example, if your project is named “Instamint,” set this parameter to ‘Instamint’.
+    ```
+     ```
+    AUTH_SECRET : It can be generated with "openssl rand -base64 32" and he's use for authentication.
+    ```
+    ```
+    SALT_ROUNDS_PASSWORD : It is for determine the number of rounds when hashing user password.
+    ```
+
+3. Instamint uses PostgreSQL as its database. Make sure you have postgres installed and create a database. If your database name is not "Instamint" make sure to change the name of your database in the .env file.
+
 To be able to execute the command, make sure you have Node.js installed on your machine.
 
 4. In your IDE's terminal, install all project dependencies by running:
