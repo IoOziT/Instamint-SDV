@@ -22,6 +22,7 @@ Instamint is a social network platform that allows users to post and purchase NF
    ```
 
 3. Instamint uses PostgreSQL as its database. Make sure you have pgAdmin installed and create a database named "Instamint".
+To be able to execute the command, make sure you have Node.js installed on your machine.
 
 4. In your IDE's terminal, install all project dependencies by running:
    ```
@@ -47,3 +48,12 @@ Instamint is a social network platform that allows users to post and purchase NF
 
 You can access Instamint via the following URL:
 [http://localhost:3000](http://localhost:3000)
+
+## About the Project
+Instamint is developed using Next.js.
+
+Regarding the components, we utilize the shadcn library.
+
+To style the frontend of our project, we use the TailwindCSS library.
+
+As mentioned earlier, we are using PostgreSQL for the database.
