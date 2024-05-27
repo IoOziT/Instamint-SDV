@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Instamint
 
-## Getting Started
+Instamint is a social network platform that allows users to post and purchase NFTs (Non-Fungible Tokens).
 
-First, run the development server:
+## Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the project repository using the following command:
+   ```
+   git clone https://github.com/LouisLagrange1/Instamint-SDV.git
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Once the project is cloned and opened in your preferred IDE, create a `.env` file at the root of the project and fill it with the following content:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+   ```
+   DB_CONNECTION_HOST='localhost'
+   DB_CONNECTION_PORT=5432
+   DB_CONNECTION_USER='postgres'
+   DB_CONNECTION_PASSWORD='your-password'
+   DB_CONNECTION_DATABASE='Instamint'
+   AUTH_SECRET="secret"
+   SALT_ROUNDS_PASSWORD=10
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+     ```
+    DB_CONNECTION_HOST : Specifies the hostname or IP address of the database server. It tells the application where to find the database
+    ```
+     ```
+    DB_CONNECTION_PORT : The port number on which the database server listens. Set this value to match your database configuration.
+    ```
+     ```
+    DB_CONNECTION_USER : The username used for database authentication. This user should have necessary permissions for database operations.
+    ```
+     ```
+    DB_CONNECTION_PASSWORD : The password associated with the specified user. Keep it confidential for secure database connections.
+    ```
+     ```
+    DB_CONNECTION_DATABASE : The name of the specific database within the management system. For example, if your project is named “Instamint,” set this parameter to ‘Instamint’.
+    ```
+     ```
+    AUTH_SECRET : It can be generated with "openssl rand -base64 32" and he's use for authentication.
+    ```
+    ```
+    SALT_ROUNDS_PASSWORD : It is for determine the number of rounds when hashing user password.
+    ```
 
-## Learn More
+3. Instamint uses PostgreSQL as its database. Make sure you have postgres installed and create a database. If your database name is not "Instamint" make sure to change the name of your database in the .env file.
 
-To learn more about Next.js, take a look at the following resources:
+To be able to execute the command, make sure you have Node.js installed on your machine.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. In your IDE's terminal, install all project dependencies by running:
+   ```
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Next, create the necessary database tables by executing the following command:
+   ```
+   export $(cat .env | xargs) && npx knex migrate:latest
+   ```
 
-## Deploy on Vercel
+6. Populate the tables with data using the following command:
+   ```
+   export $(cat .env | xargs) && npx knex seed:run
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+7. Finally, start the project by running:
+   ```
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Accessing Instamint
+
+You can access Instamint via the following URL:
+[http://localhost:3000](http://localhost:3000)
+
+## About the Project
+Instamint is developed using Next.js.
+
+Regarding the components, we utilize the shadcn library.
+
+To style the frontend of our project, we use the TailwindCSS library.
+
+As mentioned earlier, we are using PostgreSQL for the database.
