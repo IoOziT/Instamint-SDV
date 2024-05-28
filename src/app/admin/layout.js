@@ -1,6 +1,4 @@
-import "./globals.css";
-
-
+import "../globals.css";
 
 import Navbar from "@/components/layout/admin/navbar.js";
 
@@ -8,8 +6,8 @@ import Navbar from "@/components/layout/admin/navbar.js";
  * @type {import("next").Metadata}
  */
 export const metadata = {
-	title: "Instamint",
-	description: "The new social network for NFT enjoyers",
+  title: "Instamint",
+  description: "The new social network for NFT enjoyers",
 };
 
 /**
@@ -19,16 +17,16 @@ export const metadata = {
  * @param {string} [props.params.lng] - The user language
  */
 const Layout = ({ children }) => {
-	return (
-		<html >
-			<body>
-					<div className="min-h-screen flex flex-col">
-						<Navbar />
-						<main className="flex flex-1">{children}</main>
-					</div>
-			</body>
-		</html>
-	);
+  return (
+    <html>
+      <body>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex flex-1">{children}</main>
+        </div>
+      </body>
+    </html>
+  );
 };
 
 export default Layout;
