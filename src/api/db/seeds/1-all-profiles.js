@@ -12,7 +12,6 @@ exports.seed = function (knex) {
           link: "https://example.com/user1",
           profil_picture: "https://example.com/user1.jpg",
           location: "Paris, France",
-          deletion_date: new Date(),
         },
         {
           type: "user",
@@ -23,7 +22,6 @@ exports.seed = function (knex) {
           link: "https://example.com/user2",
           profil_picture: "https://example.com/user2.jpg",
           location: "New York, USA",
-          deletion_date: new Date(),
         },
       ]);
     });
