@@ -18,14 +18,10 @@ export const metadata = {
  */
 const Layout = ({ children }) => {
   return (
-    <html>
-      <body>
-        <div className="min-h-screen flex flex-col">
-          <Navbar />
-          <main className="flex flex-1">{children}</main>
-        </div>
-      </body>
-    </html>
+    <div className="w-full">
+      <Navbar />
+      <div className="flex flex-1">{children}</div>
+    </div>
   );
 };
 

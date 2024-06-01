@@ -6,27 +6,36 @@ import { getCurrentMinters } from "./api/session";
 acceptLanguage.languages(languages);
 
 export const config = {
-	matcher: [
-		"/((?!api|_next/(?:static|images)|assets|locales|(?:.*.(?:svg|png|jpeg))|favicon.ico|sw.js).*)",
-	],
+  matcher: [
+    "/((?!api|_next/(?:static|images)|assets|locales|(?:.*.(?:svg|png|jpeg))|favicon.ico|sw.js).*)",
+  ],
 };
 
 const publicPathname = ["/login", "/register", "/resetPassword"];
 
+const adminPathname = "/admin";
+
 const checkAuth = async (req, url) => {
-	const pathname = url.pathname;
-	console.log(pathname);
-	const isPublic = publicPathname.some(path => pathname.includes(path));
+  const pathname = url.pathname;
+  const isPublic = publicPathname.some((path) => pathname.includes(path));
 
-	const user = await getCurrentMinters();
+  const isAdminPath = pathname.startsWith(adminPathname);
 
-	if (isPublic && user) {
-		return NextResponse.redirect(new URL("/", req.url));
-	}
+  const user = await getCurrentMinters();
 
-	if (!isPublic && !user) {
-		return NextResponse.redirect(new URL("/login", req.url));
-	}
+  if (isAdminPath) {
+    if (!user?.isAdmin) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+  }
+
+  if (isPublic && user) {
+    return NextResponse.redirect(new URL("/", req.url));
+  }
+
+  if (!isPublic && !user) {
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
 };
 
 /**
@@ -35,10 +44,10 @@ const checkAuth = async (req, url) => {
  * @returns
  */
 export function middleware(req) {
-	const url = req.nextUrl.clone();
-	const authChecked = checkAuth(req, url);
+  const url = req.nextUrl.clone();
+  const authChecked = checkAuth(req, url);
 
-	if (authChecked) {
-		return authChecked;
-	}
+  if (authChecked) {
+    return authChecked;
+  }
 }

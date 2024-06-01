@@ -10,84 +10,84 @@ import Minters from "./db/models/mintersModel";
 import { ErrorCode } from "./errors";
 import { compareHash, createResetPasswordToken } from "./hash";
 
-export const signIn = async credentials => {
-	await getKnex();
-	const user = await Minters.query()
-		.first()
-		.where({ email: credentials.email });
+export const signIn = async (credentials) => {
+  await getKnex();
+  const user = await Minters.query()
+    .first()
+    .where({ email: credentials.email });
 
-	if (!user) {
-		throw new Error(ErrorCode.IncorrectEmailPassword);
-	}
+  if (!user) {
+    throw new Error(ErrorCode.IncorrectEmailPassword);
+  }
 
-	const passwordMatch = await compareHash(credentials.password, user.password);
+  const passwordMatch = await compareHash(credentials.password, user.password);
 
-	if (!passwordMatch) {
-		throw new Error(ErrorCode.IncorrectEmailPassword);
-	}
+  if (!passwordMatch) {
+    throw new Error(ErrorCode.IncorrectEmailPassword);
+  }
 
-	const userSessionCookieToken = signToken(
-		{ payload: { user: { id: user.id } } },
-		"1h",
-	);
+  const userSessionCookieToken = signToken(
+    { payload: { user: { id: user.id, isAdmin: user.is_admin } } },
+    "1h"
+  );
 
-	cookies().set(
-		authConfig.security.userSession.cookie.name,
-		userSessionCookieToken,
-		{
-			expires: Date.now() + ms("1h"),
-		},
-	);
+  cookies().set(
+    authConfig.security.userSession.cookie.name,
+    userSessionCookieToken,
+    {
+      expires: Date.now() + ms("1h"),
+    }
+  );
 
-	redirect("/");
+  redirect("/");
 };
 
 export const signOut = async () => {
-	cookies().set(authConfig.security.userSession.cookie.name, "", {
-		expires: Date.now(),
-	});
+  cookies().set(authConfig.security.userSession.cookie.name, "", {
+    expires: Date.now(),
+  });
 
-	redirect(authConfig.pages.signIn);
+  redirect(authConfig.pages.signIn);
 };
 
 const signToken = (payload, expiresIn) =>
-	jsonwebtoken.sign(payload, authConfig.security.userSession.token.secret, {
-		expiresIn,
-	});
+  jsonwebtoken.sign(payload, authConfig.security.userSession.token.secret, {
+    expiresIn,
+  });
 
-export const askForResetPassword = async email => {
-	await getKnex();
-	const user = await Minters.query().first().where({ email });
+export const askForResetPassword = async (email) => {
+  await getKnex();
+  const user = await Minters.query().first().where({ email });
 
-	if (!user) {
-		return true;
-	}
+  if (!user) {
+    return true;
+  }
 
-	const resetPasswordToken = await createResetPasswordToken();
+  const resetPasswordToken = await createResetPasswordToken();
 
-	await user.setResetPasswordToken(resetPasswordToken);
+  await user.setResetPasswordToken(resetPasswordToken);
 
-	await user.sendResetPasswordEmail();
+  await user.sendResetPasswordEmail();
 
-	return true;
+  return true;
 };
 
 export const resetPassword = async (password, token) => {
-	await getKnex();
-	const user = await checkResetPasswordToken(token);
+  await getKnex();
+  const user = await checkResetPasswordToken(token);
 
-	return await user.resetPassword(password, token);
+  return await user.resetPassword(password, token);
 };
 
-export const checkResetPasswordToken = async token => {
-	await getKnex();
-	const user = await Minters.query()
-		.first()
-		.where({ reset_password_token: token });
+export const checkResetPasswordToken = async (token) => {
+  await getKnex();
+  const user = await Minters.query()
+    .first()
+    .where({ reset_password_token: token });
 
-	if (!user) {
-		return false;
-	}
+  if (!user) {
+    return false;
+  }
 
-	return user;
+  return user;
 };
