@@ -1,23 +1,26 @@
+const { mintersTypeEnum } = require("../enums/minters");
+
 exports.seed = function (knex) {
   return knex("minters")
     .del()
     .then(function () {
       return knex("minters").insert([
         {
-          type: "Administrateur",
+          type: mintersTypeEnum.MINTERS,
           email: "admin@example.com",
           phone: "123-456-7890",
           password: "motdepasse",
-          profile_id: 1,
+
           is_public: true,
+          is_admin: true,
         },
         {
-          type: "Utilisateur",
-          email: "test@gmail.com",
-          phone: "111-222-3333",
+          type: mintersTypeEnum.MINTERS,
+          email: "test@example.com",
+          phone: "123-456-0000",
           password: "motdepasse2",
-          profile_id: 2,
           is_public: true,
+          is_admin: false,
         },
       ]);
     });

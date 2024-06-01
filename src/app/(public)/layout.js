@@ -1,8 +1,6 @@
-import "./globals.css";
-
-import { dir } from "i18next";
-
-import { I18nProvider } from "@/lib/i18n/index.js";
+import Navbar from "@/components/layout/navbar";
+import "../globals.css";
+import Footer from "@/components/layout/footer";
 
 /**
  * @type {import("next").Metadata}
@@ -21,15 +19,13 @@ export const metadata = {
 const Layout = ({ children }) => {
   const lng = navigator.language || "en";
   return (
-    <html lang={lng} dir={dir(lng)}>
-      <body>
-        <I18nProvider lng={lng}>
-          <div className="min-h-screen flex flex-col">
-            <main className="flex flex-1">{children}</main>
-          </div>
-        </I18nProvider>
-      </body>
-    </html>
+    <>
+      <div className="flex flex-col flex-1">
+        <Navbar />
+        {children}
+        <Footer />
+      </div>
+    </>
   );
 };
 

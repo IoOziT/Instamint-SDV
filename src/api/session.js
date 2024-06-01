@@ -3,17 +3,17 @@ import { cookies } from "next/headers";
 import authConfig from "./auth.config";
 
 export const getCurrentMinters = async () => {
-	const cookie = cookies().get(authConfig.security.userSession.cookie.name);
+  const cookie = cookies().get(authConfig.security.userSession.cookie.name);
 
-	if (!cookie) {
-		return null;
-	}
+  if (!cookie) {
+    return null;
+  }
 
-	const user = jsonwebtoken.decode(cookie.value)?.payload?.user;
+  const user = jsonwebtoken.decode(cookie.value)?.payload?.user; //Only user.id and user.isAdmin
 
-	if (!user?.id) {
-		return null;
-	}
+  if (!user?.id) {
+    return null;
+  }
 
-	return user;
+  return user;
 };
