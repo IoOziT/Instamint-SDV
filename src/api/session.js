@@ -2,18 +2,18 @@ import jsonwebtoken from "jsonwebtoken";
 import { cookies } from "next/headers";
 import authConfig from "./auth.config";
 
-export const getCurrentMinters = async () => {
-  const cookie = cookies().get(authConfig.security.userSession.cookie.name);
+export const getCurrentMinters = () => {
+  const cookie = cookies().get(authConfig.security.userSession.cookie.name)
 
   if (!cookie) {
-    return null;
+    return null
   }
 
-  const user = jsonwebtoken.decode(cookie.value)?.payload?.user; //Only user.id and user.isAdmin
+  const user = jsonwebtoken.decode(cookie.value)?.payload?.user //Only user.id and user.isAdmin
 
   if (!user?.id) {
-    return null;
+    return null
   }
 
-  return user;
-};
+  return user
+}

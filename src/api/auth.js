@@ -9,6 +9,7 @@ import { getKnex } from "./db";
 import Minters from "./db/models/mintersModel";
 import { ErrorCode } from "./errors";
 import { compareHash, createResetPasswordToken } from "./hash";
+import routes from "@/routes";
 
 export const signIn = async (credentials) => {
   await getKnex();
@@ -47,7 +48,7 @@ export const signOut = async () => {
     expires: Date.now(),
   });
 
-  redirect(authConfig.pages.signIn);
+  redirect(routes.auth.register);
 };
 
 const signToken = (payload, expiresIn) =>
