@@ -1,42 +1,41 @@
-import { languages } from "@/lib/i18n/settings";
-import acceptLanguage from "accept-language";
-import { NextRequest, NextResponse } from "next/server";
-import { getCurrentMinters } from "./api/session";
+import acceptLanguage from "accept-language"
+import { NextRequest, NextResponse } from "next/server"
 
-acceptLanguage.languages(languages);
+import { fallbackLng, languages, cookieName } from "@/lib/i18n/settings"
+import { getCurrentMinters } from "./api/session"
+import routes from "./routes"
+
+acceptLanguage.languages(languages)
 
 export const config = {
-  matcher: [
-    "/((?!api|_next/(?:static|images)|assets|locales|(?:.*.(?:svg|png|jpeg))|favicon.ico|sw.js).*)",
-  ],
-};
+  // matcher: '/:lng*'
+  matcher: ["/((?!api|_next/(?:static|images)|assets|locales|(?:.*.(?:svg|png|jpeg))|favicon.ico|sw.js).*)"],
+}
 
-const publicPathname = ["/login", "/register", "/resetPassword"];
+/**
+ *
+ * @param {NextRequest} req
+ * @returns {string}
+ */
+function getNewPath(req) {
+  const loggerUser = getCurrentMinters()
+  const knownLanguage = languages.find((loc) => req.nextUrl.pathname.startsWith(`/${loc}`))
+  const knownLanguagePrefix = knownLanguage ? `/${knownLanguage}` : ""
 
-const adminPathname = "/admin";
-
-const checkAuth = async (req, url) => {
-  const pathname = url.pathname;
-  const isPublic = publicPathname.some((path) => pathname.includes(path));
-
-  const isAdminPath = pathname.startsWith(adminPathname);
-
-  const user = await getCurrentMinters();
-
-  if (isAdminPath) {
-    if (!user?.isAdmin) {
-      return NextResponse.redirect(new URL("/", req.url));
-    }
+  if (req.nextUrl.pathname.startsWith("/_next")) {
+    return req.nextUrl.pathname
   }
 
-  if (isPublic && user) {
-    return NextResponse.redirect(new URL("/", req.url));
+  if (!loggerUser && !req.nextUrl.pathname.match(new RegExp(`${knownLanguagePrefix}/auth`))) {
+    return knownLanguagePrefix + routes.auth.login
   }
 
-  if (!isPublic && !user) {
-    return NextResponse.redirect(new URL("/login", req.url));
+  if (!loggerUser || !loggerUser.isAdmin) {
+    return knownLanguagePrefix + routes.home
   }
-};
+
+  return req.nextUrl.pathname
+}
 
 /**
  *
@@ -44,10 +43,33 @@ const checkAuth = async (req, url) => {
  * @returns
  */
 export function middleware(req) {
-  const url = req.nextUrl.clone();
-  const authChecked = checkAuth(req, url);
+  let lng
+  const newPath = getNewPath(req)
 
-  if (authChecked) {
-    return authChecked;
+  if (req.cookies.has(cookieName)) {
+    lng = acceptLanguage.get(req.cookies.get(cookieName).value)
   }
+
+  if (!lng) {
+    lng = acceptLanguage.get(req.headers.get("Accept-Language")) ?? fallbackLng
+  }
+
+  // Redirect if lng in path is not supported
+  if (!languages.some((loc) => newPath.startsWith(`/${loc}`)) && !req.nextUrl.pathname.startsWith("/_next")) {
+    return NextResponse.redirect(new URL(`/${lng}${newPath}`, req.url))
+  }
+
+  if (req.headers.has("referer")) {
+    const refererUrl = new URL(req.headers.get("referer"))
+    const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`))
+    const response = NextResponse.next()
+
+    if (lngInReferer) {
+      response.cookies.set(cookieName, lngInReferer)
+    }
+
+    return response
+  }
+
+  return NextResponse.next()
 }
