@@ -1,15 +1,18 @@
-exports.seed = function (knex) {
-    return knex("teabags")
-        .del()
-        .then(function () {
-            return knex("teabags").insert([
-                {
-                    type: "Thé vert",
-                },
-                {
-                    type: "Thé noir",
-                }
-
-            ]);
-        });
-};
+/**
+ * @param {import("knex").Knex} knex
+ * @returns
+ */
+export function seed(knex) {
+  return knex("teabags")
+    .delete()
+    .then(function () {
+      return knex("teabags").insert([
+        {
+          type: "Thé vert",
+        },
+        {
+          type: "Thé noir",
+        },
+      ])
+    })
+}

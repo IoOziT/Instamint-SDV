@@ -1,11 +1,15 @@
-module.exports.up = async (knex) => {
+/**
+ * @type {import("knex").Knex.Migration}
+ */
+module.exports = {
+  async up(knex) {
     await knex.schema.createTable("hashtags", (table) => {
-        table.increments("id").primary();
-        table.text("name").notNullable();
-        table.timestamps(true, true, true);
-    });
-};
-
-module.exports.down = async (knex) => {
-    await knex.schema.dropTable("hashtags");
-};
+      table.increments("id").primary()
+      table.string("name").notNullable()
+      table.timestamps(true, true)
+    })
+  },
+  async down(knex) {
+    await knex.schema.dropTable("hashtags")
+  },
+}

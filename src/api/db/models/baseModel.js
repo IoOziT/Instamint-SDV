@@ -1,5 +1,6 @@
-import { Model } from "objection";
+import { Model, snakeCaseMappers } from "objection"
 
-class BaseModel extends Model {}
-
-export default BaseModel;
+export default class BaseModel extends Model {
+  static columnNameMappers = snakeCaseMappers()
+  // Common properties
+}
